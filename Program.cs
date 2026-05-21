@@ -16,7 +16,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>{
     options.Password.RequiredLength = 4;
 })
 .AddEntityFrameworkStores<AppDbContext>();
-    
+
+builder.Services.AddScoped<ICityService, CityService>();
+builder.Services.AddScoped<IAttractionService, AttractionService>();
+builder.Services.AddScoped<IWeatherService, WeatherService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
